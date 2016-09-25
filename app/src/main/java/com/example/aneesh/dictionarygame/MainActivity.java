@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView myListView;
     private TextView wordText;
     private TextView pointsText;
-    private HashMap<String,String> dictionary = new HashMap<String, String>();
+    private HashMap<String,String> dictionary = new HashMap<>();
     private int points = 0;
 
     @Override
