@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         pointsText = (TextView)findViewById(R.id.points);
         pointsText.setText("Score = "+ points);
         //String[] listItems = {"AF", "BG", "CH", "DI", "EJ", "AF", "BG", "CH", "DI", "EJ", "AF", "BG", "CH", "DI", "EJ"};
+        populateDictionary();
         createList();
 
         // parameters passed are ---- Activity(here, this), Layout(simple_list_item_1) and Array(here, listItems)
@@ -64,13 +65,9 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    protected void createList(){
-
+    protected void populateDictionary(){
         String line = "";
         String[] lineSplit;
-        String[] listItems = new String[5];
-
-        Random random = new Random();
 
         wordText = (TextView)findViewById(R.id.word);
         Scanner scan = new Scanner(getResources().openRawResource(R.raw.grewords));
@@ -80,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
             lineSplit = line.split("\t");
             dictionary.put(lineSplit[0], lineSplit[1]);
         }
+    }
+
+    protected void createList(){
+
+        String[] listItems = new String[5];
+        Random random = new Random();
+
         List<String> keys = new ArrayList<>(dictionary.keySet());
         int pos = random.nextInt(5);
         for (int i = 0; i < 5; i++){
